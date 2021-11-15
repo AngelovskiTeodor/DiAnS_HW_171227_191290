@@ -1,0 +1,11 @@
+create database DIANS_HW_MONUMENTS;
+use DIANS_HW_MONUMENTS
+create table MONUMENTS(
+id BIGINT NOT NULL,
+name VARCHAR(128),
+lon DECIMAL(11,7) NOT NULL,
+lat DECIMAL(11,7) NOT NULL,
+addr_street VARCHAR(255),
+wikipedia VARCHAR(255),
+PRIMARY KEY (id)
+);
