@@ -1,0 +1,1 @@
+osmfilter map.osm --keep="historic=monument" | osmconvert - --all-to-nodes --csv="@id name @lon @lat addr:street wikipedia " --csv-headline --csv-separator="," -o="monuments.csv"
