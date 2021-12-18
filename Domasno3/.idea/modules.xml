@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/monuments/monuments.iml" filepath="$PROJECT_DIR$/monuments/monuments.iml" />
+      <module fileurl="file://$PROJECT_DIR$/navigatorengine/navigatorengine.iml" filepath="$PROJECT_DIR$/navigatorengine/navigatorengine.iml" />
+    </modules>
+  </component>
+</project>
