@@ -14,8 +14,8 @@ class MonumentsServiceTest {
     @Test
     public void testMethods(){
         assertEquals(52, monumentsService.findAll().size());
-        assertEquals(Monument.class, monumentsService.findById(908273421L).size());
-        assertEquals(null, monumentsService.findById(908973421L).size());
+        assertEquals(Monument.class, monumentsService.findById(908273421L));
+        assertEquals(null, monumentsService.findById(908973421L));
     }
 
 }
