@@ -19,6 +19,7 @@ public class MonumentsRepositoryTest {
         assertEquals(52,monumentsRepository.findAll().size());
         assertInstanceOf(Monument.class, monumentsRepository.findById(908273421L));
         assertEquals(null, monumentsRepository.findById(908270421L));
+        assertInstanceOf(Monument.class, monumentsRepository.findById(1000000411079115L));
     }
 
 }
