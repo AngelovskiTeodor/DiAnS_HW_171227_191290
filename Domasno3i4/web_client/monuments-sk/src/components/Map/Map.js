@@ -3,7 +3,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import GoogleMapReact from "google-map-react";
 import { useState } from "react";
-import MonumentMarker from "../MonumentMarker/MonumentMarker";
+import MapMarker from "../MapMarker/MapMarker";
 import axios from "axios";
 import useGeolocation from 'react-hook-geolocation'
 import { useSelector, useDispatch } from 'react-redux'
@@ -48,7 +48,7 @@ function Map() {
       console.log(location);
       //dispatch(setLocation({payload: {lat: location.latitude,lon: location.longitude}}))
       return (
-        <MonumentMarker name="My location" lat={location.latitude} lng={location.longitude} />
+        <MapMarker name="My location" lat={location.latitude} lng={location.longitude} />
       );
     }
     else {
@@ -74,7 +74,7 @@ function Map() {
             >
               {/* {monuments()} */}
               {useLocation()}
-              <MonumentMarker name="test" lat="0" lng="0" />
+              <MapMarker name="test" lat="0" lng="0" />
             </GoogleMapReact>
           </div>
         </Col>
