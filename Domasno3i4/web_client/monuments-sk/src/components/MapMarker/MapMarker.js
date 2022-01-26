@@ -1,4 +1,4 @@
-function MonumentMarker(props) {
+function MapMarker(props) {
     return (
         <div>
             {props.name}
@@ -6,4 +6,4 @@ function MonumentMarker(props) {
     );
 }
 
-export default MonumentMarker
+export default MapMarker
