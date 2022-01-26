@@ -6,7 +6,6 @@ import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import InputBase from "@mui/material/InputBase";
-import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 import GeoLocationIcon from "../GeoLocationIcon/GeoLocationIcon";
 
@@ -53,7 +52,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 function locate() {
-  alert("You have been located!");  
+  alert("You have been located!");
 }
 
 function SearchAppBar() {
@@ -69,7 +68,6 @@ function SearchAppBar() {
             sx={{ mr: 2 }}
           >
             <GeoLocationIcon />
-            {/* <MenuIcon /> */}
           </IconButton>
           <Typography
             variant="h6"
