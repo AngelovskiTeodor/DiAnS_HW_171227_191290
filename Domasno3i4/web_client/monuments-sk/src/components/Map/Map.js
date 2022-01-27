@@ -10,6 +10,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { setLocation } from '../../features/coordinates/coordinatesSlice'
 //import monumentsInstance from "../../configs/axios/monumentsInstance";
 import {GOOGLE_MAP_API_KEY} from "../../api-keys";
+import MonumentsService from "../../repository/MonumentsRepository";
 
 function Map() {
   const [center, setCenter] = useState({
@@ -18,23 +19,7 @@ function Map() {
   });
   const [zoom, setZoom] = useState(11);
   const [apiKey] = useState(GOOGLE_MAP_API_KEY);
-  const [monumentsList, setMonumentsList] = useState(
-    axios.get(
-      'http://localhost:9091/api/monuments/',
-      function (req, res) {
-        req.header("Access-Control-Allow-Origin", "*");
-        res.header("Access-Control-Allow-Origin", "*");
-    }
-    ).then(
-      resp => {
-        console.log(resp.data);
-        setMonumentsList(resp.data);
-        return resp.data;
-      }
-    ).catch(
-      err => console.log("Error api request monuments: " + err)
-    )
-  );
+  const [monumentsList, setMonumentsList] = useState( () => { return MonumentsService.getMonumentsList(); });
 
   const count = useSelector((state) => state.coordinates.value)
   const dispatch = useDispatch()
