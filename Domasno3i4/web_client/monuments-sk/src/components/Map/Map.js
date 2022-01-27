@@ -9,15 +9,15 @@ import useGeolocation from 'react-hook-geolocation'
 import { useSelector, useDispatch } from 'react-redux'
 import { setLocation } from '../../features/coordinates/coordinatesSlice'
 //import monumentsInstance from "../../configs/axios/monumentsInstance";
+import {GOOGLE_MAP_API_KEY} from "../../api-keys";
 
 function Map() {
-
   const [center, setCenter] = useState({
     lat: 41.99646,
     lng: 21.43141
   });
   const [zoom, setZoom] = useState(11);
-  const [apiKey] = useState("AIzaSyAt4BPLvokss17_FseI9mvp8oPfw7sDLJM");
+  const [apiKey] = useState(GOOGLE_MAP_API_KEY);
   const [monumentsList, setMonumentsList] = useState(
     axios.get(
       'http://localhost:9091/api/monuments/',
