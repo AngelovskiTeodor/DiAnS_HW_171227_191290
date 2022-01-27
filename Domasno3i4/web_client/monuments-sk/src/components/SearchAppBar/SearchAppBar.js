@@ -51,10 +51,6 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-function locate() {
-  alert("You have been located!");
-}
-
 function SearchAppBar() {
   return (
     <Box sx={{ flexGrow: 1 }}>
