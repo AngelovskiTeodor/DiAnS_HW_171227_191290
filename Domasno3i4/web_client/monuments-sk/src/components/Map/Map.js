@@ -4,60 +4,48 @@ import Col from "react-bootstrap/Col";
 import GoogleMapReact from "google-map-react";
 import { useState } from "react";
 import MapMarker from "../MapMarker/MapMarker";
-import axios from "axios";
-import useGeolocation from 'react-hook-geolocation'
-import { useSelector, useDispatch } from 'react-redux'
-import { setLocation } from '../../features/coordinates/coordinatesSlice'
-//import monumentsInstance from "../../configs/axios/monumentsInstance";
-import {GOOGLE_MAP_API_KEY} from "../../api-keys";
+import useGeolocation from "react-hook-geolocation";
+import { GOOGLE_MAP_API_KEY } from "../../api-keys";
 import MonumentsService from "../../repository/MonumentsRepository";
 
 function Map() {
-  const [center, setCenter] = useState({
+  const [center] = useState({
     lat: 41.99646,
-    lng: 21.43141
+    lng: 21.43141,
   });
-  const [zoom, setZoom] = useState(11);
+  const [zoom] = useState(11);
   const [apiKey] = useState(GOOGLE_MAP_API_KEY);
-  const [monumentsList, setMonumentsList] = useState( () => { return MonumentsService.getMonumentsList(); });
-
-  const count = useSelector((state) => state.coordinates.value)
-  const dispatch = useDispatch()
-
-  function monuments() {
-  }
+  const [monumentsList, setMonumentsList] = useState(() => {
+    return MonumentsService.getMonumentsList();
+  });
 
   function useLocation() {
     let location = useGeolocation();
     if (!location.error) {
       console.log(location);
-      //dispatch(setLocation({payload: {lat: location.latitude,lon: location.longitude}}))
       return (
-        <MapMarker name="My location" lat={location.latitude} lng={location.longitude} />
+        <MapMarker
+          name="My location"
+          lat={location.latitude}
+          lng={location.longitude}
+        />
       );
-    }
-    else {
+    } else {
       alert("GPS Unavailable");
-      return (
-        <div></div>
-      );
+      return <div></div>;
     }
-    return (
-      <div></div>
-    );
   }
 
   return (
     <Container>
       <Row className="justify-content-md-center">
         <Col>
-          <div style={{ height: '90vh', width: '95%', margin: 'auto'}}>
-            <GoogleMapReact 
-              bootstrapURLKeys={{key: apiKey}}
+          <div style={{ height: "90vh", width: "95%", margin: "auto" }}>
+            <GoogleMapReact
+              bootstrapURLKeys={{ key: apiKey }}
               defaultCenter={center}
               defaultZoom={zoom}
             >
-              {/* {monuments()} */}
               {useLocation()}
               <MapMarker name="test" lat="0" lng="0" />
             </GoogleMapReact>
@@ -65,7 +53,6 @@ function Map() {
         </Col>
       </Row>
     </Container>
-    
   );
 }
 
