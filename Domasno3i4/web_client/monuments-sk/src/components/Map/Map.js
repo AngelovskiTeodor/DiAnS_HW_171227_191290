@@ -54,7 +54,6 @@ function Map() {
               defaultZoom={zoom}
             >
               {useLocation()}
-              {/* <MapMarker name="test" lat="0" lng="0" /> */}
 
               {
                 monumentsList.map( monument => (

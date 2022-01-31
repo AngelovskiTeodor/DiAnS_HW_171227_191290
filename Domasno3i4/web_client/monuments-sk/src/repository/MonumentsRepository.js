@@ -21,13 +21,6 @@ const MonumentsService = {
             MonumentsServiceEndpoint,
             { "id": id },
             { headers: {"Access-Control-Allow-Origin": "*"} },
-          // ).then(
-          //   resp => {
-          //     console.log(resp.data);
-          //     return resp.data;
-          //   }
-          // ).catch(
-          //   err => console.log("Error api get request monument: " + err)
         );
     }
 }
