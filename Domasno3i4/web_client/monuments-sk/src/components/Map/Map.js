@@ -2,7 +2,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import GoogleMapReact from "google-map-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import MapMarker from "../MapMarker/MapMarker";
 import useGeolocation from "react-hook-geolocation";
 import { GOOGLE_MAP_API_KEY } from "../../api-keys";
@@ -15,9 +15,16 @@ function Map() {
   });
   const [zoom] = useState(11);
   const [apiKey] = useState(GOOGLE_MAP_API_KEY);
-  const [monumentsList, setMonumentsList] = useState(() => {
-    return MonumentsService.getMonumentsList();
-  });
+  const [monumentsList, setMonumentsList] = useState([]);
+
+  useEffect( () => {
+    MonumentsService.getMonumentsList().then(
+      resp => {
+        console.log(resp.data);
+        setMonumentsList(resp.data);
+      }
+    ).catch( err => { console.log(err); } );
+  }, []);
 
   function useLocation() {
     let location = useGeolocation();
@@ -47,7 +54,19 @@ function Map() {
               defaultZoom={zoom}
             >
               {useLocation()}
-              <MapMarker name="test" lat="0" lng="0" />
+              {/* <MapMarker name="test" lat="0" lng="0" /> */}
+
+              {
+                monumentsList.map( monument => (
+                  <MapMarker 
+                    key={monument.id} 
+                    name={"\""+monument.name+"\""} 
+                    lat={monument.lat} 
+                    lng={monument.lon} 
+                  />
+                ))
+              }
+
             </GoogleMapReact>
           </div>
         </Col>
