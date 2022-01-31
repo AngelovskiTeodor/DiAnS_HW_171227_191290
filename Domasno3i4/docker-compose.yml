@@ -1,0 +1,12 @@
+version: '3'
+services:
+  monuments:
+    build: ./monuments
+    ports:
+      - "9091:9091"
+  navigatorendgine:
+    build: ./navigatorengine
+    ports:
+      - "9092:9092"
+  monuments-react:
+    build: ./web_client/monuments-sk
