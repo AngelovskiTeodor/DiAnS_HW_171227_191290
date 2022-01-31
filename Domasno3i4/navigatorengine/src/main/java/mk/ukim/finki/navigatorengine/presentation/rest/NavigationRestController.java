@@ -20,11 +20,9 @@ public class NavigationRestController {
     public Route findRoute(
             @RequestParam Double starting_lon,
             @RequestParam Double starting_lat,
-            @RequestParam Long monumentId
+            @RequestParam Double monument_lon,
+            @RequestParam Double monument_lat
     ){
-        //21.4333190 | 41.9936737
-        Double monument_lon = 21.4333190;
-        Double monument_lat = 41.9936737;
         return this.navigationService.findRoute(
                 starting_lon, starting_lat,
                 monument_lon, monument_lat
