@@ -6,13 +6,13 @@ const MonumentsService = {
         return axios.get(
             MonumentsServiceEndpoint,
             { headers: {"Access-Control-Allow-Origin": "*"} },
-          ).then(
-            resp => {
-              console.log(resp.data);
-              return resp.data;
-            }
-          ).catch(
-            err => console.log("Error api get request monumentsList: " + err)
+          // ).then(
+          //   resp => {
+          //     console.log(resp.data);
+          //     return resp.data;
+          //   }
+          // ).catch(
+          //   err => console.log("Error api get request monumentsList: " + err)
         );
     },
     
@@ -21,13 +21,6 @@ const MonumentsService = {
             MonumentsServiceEndpoint,
             { "id": id },
             { headers: {"Access-Control-Allow-Origin": "*"} },
-          ).then(
-            resp => {
-              console.log(resp.data);
-              return resp.data;
-            }
-          ).catch(
-            err => console.log("Error api get request monument: " + err)
         );
     }
 }

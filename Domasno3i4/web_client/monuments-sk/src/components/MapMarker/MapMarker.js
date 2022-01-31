@@ -1,6 +1,6 @@
 function MapMarker(props) {
     return (
-        <div>
+        <div style={{color: "white"}}>
             {props.name}
         </div>
     );
